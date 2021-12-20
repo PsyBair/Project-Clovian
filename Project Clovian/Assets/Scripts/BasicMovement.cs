@@ -83,16 +83,4 @@ public class BasicMovement : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f); // This sets the actual player movement
         transform.position = transform.position + movement * speed * Time.deltaTime; // And this carries it out
     }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag.Equals("Enemy")) // Kills player if they touch an enemy
-        {
-            Destroy(this.gameObject);
-        }
-        if (coll.gameObject.tag.Equals("Shot")) // Kills player if they touch an enemy
-        {
-            Physics.IgnoreCollision(this.GetComponent<Collider>(), GetComponent<Collider>());
-        }
-    }
 }

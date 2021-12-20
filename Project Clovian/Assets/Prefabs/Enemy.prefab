@@ -170,6 +170,10 @@ MonoBehaviour:
     type: 3}
   enemyfireRate: 2
   shotDespawn: 3
+  player: {fileID: 0}
+  XPValue: 2
+  goldPrefab: {fileID: 6390212869009174603, guid: 176789c114bbdce4d8a19f5d5acde1e8,
+    type: 3}
 --- !u!114 &-2843332442495911755
 MonoBehaviour:
   m_ObjectHideFlags: 0

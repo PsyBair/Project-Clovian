@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class PlayerStopsShots : MonoBehaviour
 {
+    private Vector2 screenBounds;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag.Equals("Player")) // Kills player if they touch an enemy
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)); //Defines screen boundaries for the purpose of despawning objects outside of view
+        if (transform.position.x < -screenBounds.x) //Despawns once outside of screen boundaries
+        {
+            Destroy(this.gameObject);
+        }
+        if (transform.position.x > screenBounds.x)
         {
             Destroy(this.gameObject);
         }
